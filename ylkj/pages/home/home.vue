@@ -52,7 +52,7 @@
 											<view class="text-lg"><text class="text-df">{{selectedName[2]}}</text><text :class="selectH3>0?'cuIcon-triangleupfill':'cuIcon-triangledownfill'"></text></view>
 										</view>
 										<!--下拉选择列表 综合-->
-										<view class="tui-dropdownlist" :class="[selectH1>0?'tui-dropdownlist-show':'']">
+										<!-- <view class="tui-dropdownlist" :class="[selectH1>0?'tui-dropdownlist-show':'']">
 											<view class="tui-dropdownlist-item tui-icon-middle" :class="[item.selected?'tui-bold':'']" v-for="(item,index) in dropdownList1"
 											 :key="index" @tap="dropdownItem2" :data-index="index" :data-name="item.name" :data-value="item.value">
 												<view class="margin-tb-sm">
@@ -60,7 +60,7 @@
 												</view>
 												<text class="cuIcon-check" v-if="item.selected"></text>
 											</view>
-										</view>
+										</view> -->
 										<view class="tui-dropdownlist" :class="[selectH2>0?'tui-dropdownlist-show':'']">
 											<view class="tui-dropdownlist-item tui-icon-middle" :class="[item.selected?'tui-bold':'']" v-for="(item,index) in dropdownList2"
 											 :key="index" @tap="dropdownItem4" :data-index="index" :data-name="item.name" :data-value="item.value">
@@ -214,6 +214,7 @@
 			},
 			onConfirm3(e) {
 				this.addressResult =e
+				console.log(this.addressResult);
 			},
 			px(num) {
 				return uni.upx2px(num) + "px"
@@ -247,7 +248,7 @@
 			showDropdownList: function() {
 				if (this.tabIndex == 1) {
 					this.showMulLinkageThreePicker();
-					this.selectH1 = 400;
+					this.selectH1 = 0;
 					this.selectH2 = 0;
 					this.selectH3 = 0;
 				}
