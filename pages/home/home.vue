@@ -90,7 +90,7 @@
 					<template v-slot:content>
 						<!--内容 start-->
 						<view class="grid col-2 margin-sm flex justify-between ">
-							<navigator url="details" style="width:48%" class="radius-top margin-bottom-sm" v-for="(item,index) in myList" :key="index">
+							<navigator :url="'details?role='+role" style="width:48%" class="radius-top margin-bottom-sm" v-for="(item,index) in myList" :key="index">
 								<view style="background:url(/static/play.png) no-repeat;background-size:60upx 60upx;background-position: 50% 50%;background-color:rgba(0, 0, 0, 0.5);z-index: 1;height: 270upx;" class="radius-top">
 									<image class="radius-top" style="width: 100%;height: 270upx;z-index: -1;" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572526441738&di=72654ddd0b3a2628784e86cc540e4512&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1707%2F28%2Fc6%2F54025678_1501245963871.jpg" mode="aspectFill"></image>
 								</view>
@@ -191,8 +191,13 @@
 					"格兰仕暗示拜访拼多多后遭天猫打压，拼多多高层赞其有勇气",
 					"阿里计划将每股普通股拆为8股，增加筹资灵活性"
 				],
-				myList:["","","","","","","","","","","","","","",""]
+				myList:["","","","","","","","","","","","","","",""],
+				role:'ncz',
 			};
+		},
+		onLoad(e) {
+			this.role=e.role
+			console.log(this.role)
 		},
 		onPageScroll(e) {
 			this.scrollTop= e.scrollTop
