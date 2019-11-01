@@ -162,7 +162,7 @@
 				dropdownList2: [{
 					value: 0,
 					name: "面积最大",
-					selected: false
+					selected: true
 				}, {
 					value: 1,
 					name: "温度最高",
@@ -172,7 +172,21 @@
 					name: "湿度最高",
 					selected: false
 				}],
-				getTaskCategoryList: [],
+				getTaskCategoryList: [
+					{
+						value: 1,
+						name: "幼苗期",
+						selected: false
+					}, {
+						value: 2,
+						name: "成长期",
+						selected: false
+					}, {
+						value: 3,
+						name: "收获期",
+						selected: true
+					}
+				],
 				swiperList: [{
 					id: 0,
 					type: 'image',
