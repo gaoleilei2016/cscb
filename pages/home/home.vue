@@ -90,7 +90,7 @@
 					<template v-slot:content>
 						<!--内容 start-->
 						<view class="grid col-2 margin-sm flex justify-between ">
-							<navigator url="play" style="width:48%" class="radius-top margin-bottom-sm" v-for="(item,index) in myList" :key="index">
+							<navigator url="details" style="width:48%" class="radius-top margin-bottom-sm" v-for="(item,index) in myList" :key="index">
 								<view style="background:url(/static/play.png) no-repeat;background-size:60upx 60upx;background-position: 50% 50%;background-color:rgba(0, 0, 0, 0.5);z-index: 1;height: 270upx;" class="radius-top">
 									<image class="radius-top" style="width: 100%;height: 270upx;z-index: -1;" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572526441738&di=72654ddd0b3a2628784e86cc540e4512&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1707%2F28%2Fc6%2F54025678_1501245963871.jpg" mode="aspectFill"></image>
 								</view>
@@ -152,30 +152,30 @@
 				}],
 				dropdownList2: [{
 					value: 0,
-					name: "排序1",
+					name: "面积最大",
 					selected: false
 				}, {
 					value: 1,
-					name: "排序2",
+					name: "温度最高",
 					selected: false
 				}, {
 					value: 2,
-					name: "排序3",
+					name: "湿度最高",
 					selected: false
 				}],
 				getTaskCategoryList: [],
 				swiperList: [{
 					id: 0,
 					type: 'image',
-					url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572526441738&di=72654ddd0b3a2628784e86cc540e4512&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1707%2F28%2Fc6%2F54025678_1501245963871.jpg'
+					url: 'http://txcos.kelinteng.com/uploads/20191101/ylkj_bg.png'
 				}, {
 					id: 1,
 					type: 'image',
-					url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572526441738&di=72654ddd0b3a2628784e86cc540e4512&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1707%2F28%2Fc6%2F54025678_1501245963871.jpg',
+					url: 'http://txcos.kelinteng.com/uploads/20191101/ylkj_bg.png',
 				}, {
 					id: 2,
 					type: 'image',
-					url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572526441738&di=72654ddd0b3a2628784e86cc540e4512&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1707%2F28%2Fc6%2F54025678_1501245963871.jpg'
+					url: 'http://txcos.kelinteng.com/uploads/20191101/ylkj_bg.png'
 				}],
 				newsList: [
 					"致力发展负责任的人工智能 中国发布八大治理原则",
