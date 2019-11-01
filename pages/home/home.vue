@@ -210,9 +210,11 @@
 				this.$refs.mpvueCityPicker.pickerCancel()
 			},
 			onCancel(e) {
+				this.selectH1=0
 				console.log(e)
 			},
 			onConfirm3(e) {
+				this.hideDropdownList();
 				this.addressResult =e
 				console.log(this.addressResult);
 			},
@@ -248,7 +250,7 @@
 			showDropdownList: function() {
 				if (this.tabIndex == 1) {
 					this.showMulLinkageThreePicker();
-					this.selectH1 = 0;
+					this.selectH1 = 400;
 					this.selectH2 = 0;
 					this.selectH3 = 0;
 				}
