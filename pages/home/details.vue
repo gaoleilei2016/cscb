@@ -48,7 +48,7 @@
 						<text class="cuIcon-close text-red"></text>
 					</view>
 				</view>
-				<view class="bg-img" style="background-image: url(../../static/状态弹窗.png);height:200px;">
+				<view class="bg-img" style="background-image: url(../../static/状态弹窗.png);height:230px;">
 					
 				</view>
 			</view>
