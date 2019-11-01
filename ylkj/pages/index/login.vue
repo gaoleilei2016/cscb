@@ -59,7 +59,7 @@
 				this.$api.msg("登录成功")
 				setTimeout(function(){
 					uni.reLaunch({
-						url:'../home/details?role='+that.role
+						url:'../home/home?role='+that.role
 					})
 				},1000)
 			}
