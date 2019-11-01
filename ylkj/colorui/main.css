@@ -480,7 +480,7 @@ radio.white.checked .uni-radio-input {
  ==================== */
 
 /* -- 实线 -- */
-
+.solid-all,
 .solid,
 .solid-top,
 .solid-right,
@@ -498,7 +498,7 @@ radio.white.checked .uni-radio-input {
 .dashed-left {
 	position: relative;
 }
-
+.solid-all::after,
 .solid::after,
 .solid-top::after,
 .solid-right::after,
@@ -540,6 +540,9 @@ radio.white.checked .uni-radio-input {
 	border: 1upx solid rgba(0, 0, 0, 0.1);
 }
 
+.solid-all::after{
+	border: 1upx outset #FFF;
+}
 .solid-top::after {
 	border-top: 1upx solid rgba(0, 0, 0, 0.1);
 }
@@ -2869,7 +2872,56 @@ scroll-view.cu-steps .cu-item {
 .flex-sub {
 	flex: 1;
 }
-
+.percent10{
+	width: 10%;
+	line-height:80upx;
+	height: 80upx;
+}
+.percent20{
+	width: 20%;
+	line-height:80upx;
+	height: 80upx;
+}
+.percent30{
+	width: 30%;
+	line-height:80upx;
+	height: 80upx;
+}
+.percent40{
+	width: 40%;
+	line-height:80upx;
+	height: 80upx;
+}
+.percent50{
+	width: 50%;
+	line-height:80upx;
+	height: 80upx;
+}
+.percent60{
+	width: 60%;
+	line-height:80upx;
+	height: 80upx;
+}
+.percent70{
+	width: 70%;
+	line-height:80upx;
+	height: 80upx;
+}
+.percent80{
+	width: 80%;
+	line-height:80upx;
+	height: 80upx;
+}
+.percent90{
+	width: 90%;
+	line-height:80upx;
+	height: 80upx;
+}
+.percent100{
+	width: 100%;
+	line-height:80upx;
+	height: 80upx;
+}
 .flex-twice {
 	flex: 2;
 }
