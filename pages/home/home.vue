@@ -117,23 +117,32 @@
 				</tui-sticky>
 			</view>
 		</view>
+		<mpvue-city-picker :themeColor="themeColor" ref="mpvueCityPicker" :pickerValueDefault="cityPickerValueDefault"
+		 @onCancel="onCancel" @onConfirm="onConfirm3"></mpvue-city-picker>
 	</view>
 </template>
 
 <script>
 	var that;
+	import mpvueCityPicker from '@/components/mpvue-citypicker/mpvueCityPicker.vue'
 	import tuiSticky from "@/components/sticky/sticky"
+	import cityData from '../../utils/city.data.js';
 	export default {
 		components:{
-			tuiSticky
+			tuiSticky,
+			mpvueCityPicker
 		},
 		data() {
 			return {
+				themeColor: '#007AFF',
+				addressResult:{label:"请选择",value:[0,0,0],cityCode:'110101'},
+				mulLinkageTwoPicker: cityData,
+				cityPickerValueDefault: [0, 0, 1],
 				fillwidth:false,
 				scrollTop: 0,
 				CustomBar: this.CustomBar,
 				tabIndex: 1, //顶部筛选索引
-				selectedName: ['地域', '排序', '阶段'],
+				selectedName: ['区域', '排序', '阶段'],
 				selectH1: 0,
 				selectH2: 0,
 				selectH3: 0,
@@ -194,6 +203,18 @@
 			}
 		},
 		methods: {
+			showMulLinkageThreePicker() {
+				this.$refs.mpvueCityPicker.show()
+			},
+			hideMulLinkageThreePicker() {
+				this.$refs.mpvueCityPicker.pickerCancel()
+			},
+			onCancel(e) {
+				console.log(e)
+			},
+			onConfirm3(e) {
+				this.addressResult =e
+			},
 			px(num) {
 				return uni.upx2px(num) + "px"
 			},
@@ -225,16 +246,19 @@
 			},
 			showDropdownList: function() {
 				if (this.tabIndex == 1) {
+					this.showMulLinkageThreePicker();
 					this.selectH1 = 400;
 					this.selectH2 = 0;
 					this.selectH3 = 0;
 				}
 				if (this.tabIndex == 2) {
+					this.hideMulLinkageThreePicker()
 					this.selectH1 = 0;
 					this.selectH2 = 400;
 					this.selectH3 = 0;
 				}
 				if (this.tabIndex == 3) {
+					this.hideMulLinkageThreePicker()
 					this.selectH1 = 0;
 					this.selectH2 = 0;
 					this.selectH3 = 300;
@@ -242,16 +266,19 @@
 			},
 			hideDropdownList: function() {
 				if (this.tabIndex == 1) {
+					this.hideMulLinkageThreePicker()
 					this.selectH1 = 0;
 					this.selectH2 = 0;
 					this.selectH3 = 0;
 				}
 				if (this.tabIndex == 2) {
+					this.hideMulLinkageThreePicker()
 					this.selectH1 = 0;
 					this.selectH2 = 0;
 					this.selectH3 = 0;
 				}
 				if (this.tabIndex == 3) {
+					this.hideMulLinkageThreePicker()
 					this.selectH1 = 0;
 					this.selectH2 = 0;
 					this.selectH3 = 0;
