@@ -1,0 +1,9 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "商家服务",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "tui-top-dropdown": "/components/top-dropdown/top-dropdown",
+    "list-item": "/colorui/components/listitem"
+  }
+}

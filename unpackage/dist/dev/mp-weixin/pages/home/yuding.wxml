@@ -1,0 +1,1 @@
+<view><view><image style="width:100%;" src="../../static/yuding1.png" mode="widthFix"></image><view class="cu-tabbar-height"></view></view><navigator class="cu-bar foot flex justify-center" style="box-shadow:0 rgba(0, 0, 0, 0);" url="yuding"><image style="width:100%;" src="../../static/yuding2.png" mode="widthFix"></image></navigator></view>
