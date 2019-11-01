@@ -99,7 +99,7 @@
 				isLoad: true,
 				cardCur: 0,
 				tabIndex: 1, //顶部筛选索引
-				selectedName: ['地域', '排序', '阶段'],
+				selectedName: ['区域', '排序', '阶段'],
 				selectH1: 0,
 				selectH2: 0,
 				selectH3: 0,
