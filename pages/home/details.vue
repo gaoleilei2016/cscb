@@ -38,7 +38,20 @@
 		<view class="" v-else-if="role == 'ylkj'">
 			<image class="margin-top-sm" src="../../static/实时环境监测.png" style="width: 100%;" mode="widthFix"></image>
 			<image @tap="navigator" class="margin-top-sm" src="../../static/基地视频.png" style="width: 100%;" mode="widthFix"></image>
-			<image class="margin-top-sm" src="../../static/设备状态.png" style="width: 100%;" mode="widthFix"></image>
+			<image @tap="showDialog=true" class="margin-top-sm" src="../../static/设备状态.png" style="width: 100%;" mode="widthFix"></image>
+		</view>
+		<view class="cu-modal" :class="showDialog?'show':''">
+			<view class="cu-dialog">
+				<view class="cu-bar bg-white justify-end">
+					<view class="content">设备信息</view>
+					<view class="action" @tap="showDialog=false">
+						<text class="cuIcon-close text-red"></text>
+					</view>
+				</view>
+				<view class="bg-img" style="background-image: url(../../static/状态弹窗.png);height:200px;">
+					
+				</view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -49,6 +62,7 @@
 		data() {
 			return {
 				role:'ncz',//用户角色:ncz 农场主，zfgljfw 政府管理及服务，sjfw 商家服务 ，hzdw 合作单位，ylkj 昱隆科技
+				showDialog:true
 			}
 		},
 		onLoad(e) {
