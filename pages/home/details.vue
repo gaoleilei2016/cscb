@@ -21,7 +21,12 @@
 	export default {
 		data() {
 			return {
+				roles:''
 			}
+		},
+		onLoad(e) {
+			this.roles=e.roles
+			console.log(this.roles)
 		},
 		methods: {
 			navigator(){
