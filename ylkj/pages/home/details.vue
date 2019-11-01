@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<image src="../../static/基地概况.png" style="width: 100%;" mode="widthFix"></image>
-		<view class="" v-if="true">
+		<view class="" v-if="role == 'ncz'">
 			<image class="margin-top-sm" src="../../static/实时环境监测.png" style="width: 100%;" mode="widthFix"></image>
 			<image @tap="navigator" class="margin-top-sm" src="../../static/基地视频.png" style="width: 100%;" mode="widthFix"></image>
 			<image class="margin-top-sm" src="../../static/品类及产收掌握.png" style="width: 100%;" mode="widthFix"></image>
