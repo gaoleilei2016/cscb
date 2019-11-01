@@ -10,7 +10,7 @@
 			<image class="margin-top-sm " src="../../static/jidi7.png" style="width: 100%;" mode="widthFix"></image>
 			<view class="cu-tabbar-height"></view>
 		</view>
-		<navigator url="yuding" style="box-shadow: 0 0 0 rgba(0, 0, 0, 0);margin-bottom: 100upx;" class="cu-bar foot flex justify-center">
+		<navigator url="yuding" style="box-shadow: 0 0 0 rgba(0, 0, 0, 0);margin-bottom: 20upx;" class="cu-bar foot flex justify-center">
 			<button class="cu-btn round lg block bg-green" style="width: 90%;">立即预定</button>
 		</navigator>
 	</view>
