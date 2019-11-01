@@ -1,18 +1,44 @@
 <template>
 	<view>
-		<image src="../../static/jidi1.png" style="width: 100%;" mode="widthFix"></image>
-		<image class="margin-top-sm" src="../../static/jidi2.png" style="width: 100%;" mode="widthFix"></image>
-		<image @tap="navigator" class="margin-top-sm" src="../../static/jidi3.png" style="width: 100%;" mode="widthFix"></image>
-		<image class="margin-top-sm" src="../../static/jidi4.png" style="width: 100%;" mode="widthFix"></image>
-		<image class="margin-top-sm" src="../../static/jidi5.png" style="width: 100%;" mode="widthFix"></image>
-		<image class="margin-top-sm" src="../../static/jidi6.png" style="width: 100%;" mode="widthFix"></image>
-		<view class="bg-white">
-			<image class="margin-top-sm " src="../../static/jidi7.png" style="width: 100%;" mode="widthFix"></image>
-			<view class="cu-tabbar-height"></view>
+		<image src="../../static/基地概况.png" style="width: 100%;" mode="widthFix"></image>
+		<view class="" v-if="role == 'ncz'">
+			<image class="margin-top-sm" src="../../static/实时环境监测.png" style="width: 100%;" mode="widthFix"></image>
+			<image @tap="navigator" class="margin-top-sm" src="../../static/基地视频.png" style="width: 100%;" mode="widthFix"></image>
+			<image class="margin-top-sm" src="../../static/品类及产收掌握.png" style="width: 100%;" mode="widthFix"></image>
+			<image class="margin-top-sm" src="../../static/产量预测.png" style="width: 100%;" mode="widthFix"></image>
+			<image class="margin-top-sm" src="../../static/预定情况.png" style="width: 100%;" mode="widthFix"></image>
+			<view class="bg-white margin-top-sm">
+				<image class="margin-top-sm " src="../../static/政策资讯.png" style="width: 100%;" mode="widthFix"></image>
+				<view class="cu-tabbar-height"></view>
+			</view>
 		</view>
-		<navigator url="yuding" style="box-shadow: 0 0 0 rgba(0, 0, 0, 0);margin-bottom: 20upx;" class="cu-bar foot flex justify-center">
-			<button class="cu-btn round lg block bg-green" style="width: 90%;">立即预定</button>
-		</navigator>
+		<view class="" v-else-if="role == 'zfgljfw'">
+			<image class="margin-top-sm" src="../../static/实时环境监测.png" style="width: 100%;" mode="widthFix"></image>
+			<image @tap="navigator" class="margin-top-sm" src="../../static/基地视频.png" style="width: 100%;" mode="widthFix"></image>
+			<image class="margin-top-sm" src="../../static/品类及产收掌握.png" style="width: 100%;" mode="widthFix"></image>
+			<image class="margin-top-sm" src="../../static/产量预测.png" style="width: 100%;" mode="widthFix"></image>
+		</view>
+		<view class="" v-else-if="role == 'sjfw'">
+			<image class="margin-top-sm" src="../../static/实时环境监测.png" style="width: 100%;" mode="widthFix"></image>
+			<image @tap="navigator" class="margin-top-sm" src="../../static/基地视频.png" style="width: 100%;" mode="widthFix"></image>
+			<image class="margin-top-sm" src="../../static/品类及产收掌握.png" style="width: 100%;" mode="widthFix"></image>
+			<image class="margin-top-sm" src="../../static/产量预测.png" style="width: 100%;" mode="widthFix"></image>
+			<image class="margin-top-sm" src="../../static/预定情况.png" style="width: 100%;" mode="widthFix"></image>
+			<navigator url="yuding" style="box-shadow: 0 0 0 rgba(0, 0, 0, 0);margin-bottom: 100upx;" class="cu-bar foot flex justify-center">
+				<button class="cu-btn round lg block bg-green" style="width: 90%;">立即预定</button>
+			</navigator>
+		</view>
+		<view class="" v-else-if="role == 'hzdw'">
+			<image class="margin-top-sm" src="../../static/实时环境监测.png" style="width: 100%;" mode="widthFix"></image>
+			<image @tap="navigator" class="margin-top-sm" src="../../static/基地视频.png" style="width: 100%;" mode="widthFix"></image>
+			<image class="margin-top-sm" src="../../static/品类及产收掌握.png" style="width: 100%;" mode="widthFix"></image>
+			<image class="margin-top-sm" src="../../static/产量预测.png" style="width: 100%;" mode="widthFix"></image>
+		</view>
+		<view class="" v-else-if="role == 'ylkj'">
+			<image class="margin-top-sm" src="../../static/实时环境监测.png" style="width: 100%;" mode="widthFix"></image>
+			<image @tap="navigator" class="margin-top-sm" src="../../static/基地视频.png" style="width: 100%;" mode="widthFix"></image>
+			<image class="margin-top-sm" src="../../static/设备状态.png" style="width: 100%;" mode="widthFix"></image>
+		</view>
 	</view>
 </template>
 
@@ -21,7 +47,7 @@
 	export default {
 		data() {
 			return {
-				roles:''
+				role:'ncz',//用户角色:ncz 农场主，zfgljfw 政府管理及服务，sjfw 商家服务 ，hzdw 合作单位，ylkj 昱隆科技
 			}
 		},
 		onLoad(e) {
