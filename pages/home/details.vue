@@ -58,7 +58,7 @@
 		methods: {
 			navigator(){
 				uni.navigateTo({
-					url:'play'
+					url:'play?role='+this.role
 				})
 			}
 		},

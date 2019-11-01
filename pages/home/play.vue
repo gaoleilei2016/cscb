@@ -20,7 +20,7 @@
 					<text class="text-black">历史回放</text>
 				</view>
 				<view class="grid col-3 flex justify-between ">
-					<view class="margin-bottom-sm relative text-xs" v-for="(item,index) in 6" :key="index">
+					<view @tap="navigator"  class="margin-bottom-sm relative text-xs" v-for="(item,index) in 6" :key="index">
 						<view class="margin-lr-sm" style="background:url(../../static/play.png) no-repeat;background-size:40upx 40upx;background-position: 50% 40%;background-color:rgba(0, 0, 0, 0.5);z-index: 1;height: 130upx;">
 							<image style="width: 100%;height:130upx;z-index: -1;" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572526441738&di=72654ddd0b3a2628784e86cc540e4512&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1707%2F28%2Fc6%2F54025678_1501245963871.jpg" mode="aspectFill"></image>
 						</view>
@@ -36,7 +36,7 @@
 					<text class="text-black">设备切换</text>
 				</view>
 				<view class="grid col-3 flex justify-between ">
-					<view class="margin-bottom-sm relative text-xs" v-for="(item,index) in 3" :key="index">
+					<view @tap="navigator" class="margin-bottom-sm relative text-xs" v-for="(item,index) in 3" :key="index">
 						<view class="margin-lr-sm" style="background:url(../../static/play.png) no-repeat;background-size:40upx 40upx;background-position: 50% 45%;background-color:rgba(0, 0, 0, 0.5);z-index: 1;height: 130upx;">
 							<image style="width: 100%;height:130upx;z-index: -1;" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572526441738&di=72654ddd0b3a2628784e86cc540e4512&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1707%2F28%2Fc6%2F54025678_1501245963871.jpg" mode="aspectFill"></image>
 						</view>
@@ -57,9 +57,19 @@
 	export default {
 		data() {
 			return {
+				role:'ncz',
 			};
 		},
+		onLoad(e) {
+			this.role=e.role
+			console.log(this.role)
+		},
 		methods: {
+			navigator(){
+				uni.navigateTo({
+					url:'play?role='+this.role
+				})
+			}
 		},
 		onShow() {},
 		onHide() {}
