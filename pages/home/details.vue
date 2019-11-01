@@ -62,7 +62,7 @@
 		data() {
 			return {
 				role:'ncz',//用户角色:ncz 农场主，zfgljfw 政府管理及服务，sjfw 商家服务 ，hzdw 合作单位，ylkj 昱隆科技
-				showDialog:true
+				showDialog:false
 			}
 		},
 		onLoad(e) {
