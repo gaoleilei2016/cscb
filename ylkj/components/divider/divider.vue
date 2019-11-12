@@ -43,7 +43,7 @@
 			//背景颜色，和当前页面背景色保持一致
 			bgcolor: {
 				type: String,
-				default: "#fafafa"
+				default: "#f2f2f2"
 			},
 			//是否为渐变线条，为true，divideColor失效
 			gradual: {
