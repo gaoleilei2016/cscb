@@ -1,7 +1,7 @@
 {
 	"pages": [
 		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		{
+		 {
 			"path": "pages/index/login",
 			"style": {
 				"navigationStyle": "custom",
@@ -10,6 +10,16 @@
 				"navigationBarTextStyle": "white",
 				"backgroundColorTop": "#F7F7F7",
 				"backgroundColorBottom": "#F7F7F7"
+			}
+		}, { //商品详情页
+			"path": "pages/home/product_info",
+			"style": {
+				"navigationBarTitleText": "商品详情",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
 			}
 		},{
 			"path": "pages/home/success",
@@ -21,7 +31,7 @@
 				"backgroundColorTop": "#F7F7F7",
 				"backgroundColorBottom": "#F7F7F7"
 			}
-		},{
+		}, {
 			"path": "pages/home/productinfo",
 			"style": {
 				"navigationStyle": "default",
@@ -31,19 +41,19 @@
 				"backgroundColorTop": "#F7F7F7",
 				"backgroundColorBottom": "#F7F7F7"
 			}
-		},{
+		}, {
 			"path": "pages/home/home",
 			"style": {
 				"navigationStyle": "default",
 				"navigationBarTitleText": "首页",
-				"enablePullDownRefresh":true,
+				"enablePullDownRefresh": true,
 				"navigationBarBackgroundColor": "#1EA558",
 				"navigationBarTextStyle": "white",
 				"backgroundColorTop": "#F7F7F7",
 				"backgroundColorBottom": "#F7F7F7"
 			}
 		},
-		 {
+		{
 			"path": "pages/home/details",
 			"style": {
 				"navigationBarTitleText": "基地详情",
@@ -61,7 +71,7 @@
 				"backgroundColorTop": "#F7F7F7",
 				"backgroundColorBottom": "#F7F7F7"
 			}
-		},{
+		}, {
 			"path": "pages/home/yuding",
 			"style": {
 				"navigationBarTitleText": "产品详情",
@@ -75,22 +85,22 @@
 			"path": "pages/market/home",
 			"style": {
 				"navigationStyle": "custom",
-				"navigationBarTitleText":"商家服务",
-				"enablePullDownRefresh":true
+				"navigationBarTitleText": "商家服务",
+				"enablePullDownRefresh": true
 			}
 		},
 		{
-			"path": "pages/more/home",//基地详情
+			"path": "pages/more/home", //基地详情
 			"style": {
 				"navigationStyle": "default",
-				"navigationBarTitleText":"基地详情",
-				"enablePullDownRefresh":true,
+				"navigationBarTitleText": "基地详情",
+				"enablePullDownRefresh": true,
 				"navigationBarBackgroundColor": "#1EA558",
 				"navigationBarTextStyle": "white",
 				"backgroundColorTop": "#F7F7F7",
 				"backgroundColorBottom": "#F7F7F7"
 			}
-		},{
+		}, {
 			"path": "pages/home/yudingorder",
 			"style": {
 				"navigationBarTitleText": "产品预定",
@@ -99,7 +109,7 @@
 				"backgroundColorTop": "#F7F7F7",
 				"backgroundColorBottom": "#F7F7F7"
 			}
-		},{
+		}, {
 			"path": "pages/home/ydresult",
 			"style": {
 				"navigationBarTitleText": "预定结果",
@@ -109,12 +119,12 @@
 				"backgroundColorBottom": "#F7F7F7"
 			}
 		}
-		
+
 	],
-	"tabBar":{
-		"selectedColor":"#161848",
-		"color":"#999999",
-		"list":[
+	"tabBar": {
+		"selectedColor": "#161848",
+		"color": "#999999",
+		"list": [
 			// {
 			// 	"pagePath":"pages/home/home",
 			// 	"iconPath":"static/tabbar/home.png",
@@ -146,8 +156,8 @@
 		"navigationStyle": "default",
 		"navigationBarTextStyle": "black",
 		"navigationBarBackgroundColor": "#FFFFFF",
-		"app-plus":{
-			"scrollIndicator":"none"
+		"app-plus": {
+			"scrollIndicator": "none"
 		}
 	},
 	"condition": { //模式配置，仅开发期间生效

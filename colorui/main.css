@@ -2897,6 +2897,11 @@ scroll-view.cu-steps .cu-item {
 	line-height:80upx;
 	height: 80upx;
 }
+.percent45{
+	width: 45%;
+	line-height:80upx;
+	height: 80upx;
+}
 .percent60{
 	width: 60%;
 	line-height:80upx;
@@ -2921,6 +2926,11 @@ scroll-view.cu-steps .cu-item {
 	width: 100%;
 	line-height:80upx;
 	height: 80upx;
+}
+.percent100-60{
+	width: 100%;
+	line-height:60upx;
+	height: 60upx;
 }
 .flex-twice {
 	flex: 2;
