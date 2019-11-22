@@ -44,7 +44,7 @@
 		}, {
 			"path": "pages/home/home",
 			"style": {
-				"navigationStyle": "default",
+				"navigationStyle": "custom",
 				"navigationBarTitleText": "首页",
 				"enablePullDownRefresh": true,
 				"navigationBarBackgroundColor": "#1EA558",
