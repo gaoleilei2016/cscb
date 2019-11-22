@@ -55,7 +55,7 @@
 			<view class="solid-bottom padding text-black text-bold">
 				<text>基地预定情况</text>
 			</view>
-			<canvas canvas-id="canvasMix" id="canvasMix" class="charts" disable-scroll=true @touchstart="touchMix" @touchmove="moveMix" @touchend="touchEndMix"></canvas>
+			<canvas canvas-id="canvasColumn" id="canvasColumn" class="charts" disable-scroll=true @touchstart="touchColumn" @touchmove="moveColumn" @touchend="touchEndColumn"></canvas>
 			<view class="padding">
 				<view class="flex text-center">
 					<view class="bg-theme percent30 solid-all "></view>
@@ -169,7 +169,7 @@
 	var _self;
 	var canvaPie = null;
 	var canvaArea = null;
-	var canvaMix=null;
+	var canvaColumn=null;
 	export default {
 		data() {
 			return {
@@ -220,43 +220,49 @@
 			console.log(this.role)
 		},
 		methods: {
-			touchMix(e){
-				canvaMix.scrollStart(e);
+			touchColumn(e){
+				canvaColumn.scrollStart(e);
 			},
-			moveMix(e) {
-				canvaMix.scroll(e);
+			moveColumn(e) {
+				canvaColumn.scroll(e);
 			},
-			touchEndMix(e) {
-				canvaMix.scrollEnd(e);
-				//下面是toolTip事件，如果滚动后不需要显示，可不填写
-				canvaMix.touchLegend(e);
-				canvaMix.showToolTip(e, {
+			touchEndColumn(e) {
+				canvaColumn.scrollEnd(e);
+				canvaColumn.touchLegend(e, {
+					animation:true,
+				});
+				canvaColumn.showToolTip(e, {
 					format: function (item, category) {
 						return category + ' ' + item.name + ':' + item.data 
 					}
 				});
 			},
-			showMix(canvasId,chartData){
-				canvaMix=new uCharts({
+			showColumn(canvasId,chartData){
+				canvaColumn=new uCharts({
 					$this:_self,
 					canvasId: canvasId,
-					type: 'mix',
+					type: 'column',
 					fontSize:11,
-					padding:[15,5,15,5],
+					padding:[5,15,15,15],
 					legend:{
-					show:false,
-					position:'bottom',
-					float:'center',
+						show:true,
+						position:'top',
+						float:'center',
+						itemGap:30,
 						padding:5,
-						lineHeight:11,
-						margin:6,
+						margin:5,
+						//backgroundColor:'rgba(41,198,90,0.2)',
+						//borderColor :'rgba(41,198,90,0.5)',
+						borderWidth :1
 					},
+					dataLabel:false,
+					dataPointShape:true,
 					background:'#FFFFFF',
 					pixelRatio:_self.pixelRatio,
 					categories: chartData.categories,
 					series: chartData.series,
 					animation: true,
-					enableScroll: true,//开启图表拖拽功能
+					enableScroll: true,
 					xAxis: {
 						disableGrid:false,
 						type:'grid',
@@ -266,64 +272,21 @@
 						scrollAlign:'left',
 					},
 					yAxis: {
-			data:[{
-			  calibration:true,
-			  position:'left',
-			  title:'价格',
-			  titleFontSize:12,
-			  format:(val)=>{return val.toFixed(0)+'元'}
-			},{
-			  calibration:true,
-			  position:'right',
-			  min:0,
-			  max:200,
-			  title:'购买量',
-			  titleFontSize:12,
-			  format:(val)=>{return val.toFixed(0)+''}
-			}],
-			showTitle:true,
+						//disabled:true
 						gridType:'dash',
-						dashLength:4,
-						splitNumber:5
+						splitNumber:4,
+						min:10,
+						max:150,
+						format:(val)=>{return val.toFixed(0)+'元'}//如不写此方法，Y轴刻度默认保留两位小数
 					},
 					width: _self.cWidth*_self.pixelRatio,
 					height: _self.cHeight*_self.pixelRatio,
-					dataLabel: true,
-					dataPointShape: true,
 					extra: {
-					column:{
-					  width:20*_self.pixelRatio
+						column: {
+							type:'group',
+							width:12
+						}
 					},
-					tooltip:{
-						showBox:false,//是否显示半透明黑色的提示区域
-						bgColor:'#000000',
-						bgOpacity:0.7,
-						gridType:'dash',
-						dashLength:8,
-						gridColor:'#1890ff',
-						fontColor:'#FFFFFF',
-						horizentalLine:true,
-						xAxisLabel:true,
-						yAxisLabel:true,
-						labelBgColor:'#DFE8FF',
-						labelBgOpacity:0.95,
-						labelAlign:'left',
-						labelFontColor:'#666666'
-					}
-					},
-				});
-				/*下面是渲染完成时的事件，不需要请删除，注：拖动和图表交互的时候都会重新渲染
-				canvaMix.addEventListener('renderComplete', () => {
-				    console.log("图表渲染完成");
-				});
-				*/
-				//下面是拖动滚动条到尽头的事件，不需要请删除
-				canvaMix.addEventListener('scrollLeft', () => {
-				    console.log("已经到最【左】边啦");
-				});
-				//下面是拖动滚动条到尽头的事件，不需要请删除
-				canvaMix.addEventListener('scrollRight', () => {
-				    console.log("已经到最【右】边啦");
 				});
 			},
 			refresh(item){
@@ -335,6 +298,34 @@
 				this.showDialog=false
 			},
 			getServerData() {
+				uni.request({
+					url: 'https://www.ucharts.cn/data.json',
+					data:{
+					},
+					success: function(res) {
+						console.log(res.data.data)
+						let Column={categories:[],series:[]};
+						//这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
+						Column.categories=res.data.data.LineA.categories;
+						Column.series=res.data.data.LineA.series;
+						// _self.textarea = JSON.stringify(res.data.data.LineA);
+						
+					},
+					fail: () => {
+						_self.tips="网络错误，小程序端请检查合法域名";
+					},
+				});
+				
+				let Column= {
+					"categories": ["第一季度", "第二季度", "第三季度", "第四季度", "第五季度", "第六季度"],
+					"series": [
+						  {"name": "荔枝","data": [ 80, 60, 75, 67, 100, 80],"color": "#F00000"}, 
+						  {"name": "绿橙","data": [ 110,100,130,34, 60, 110],"color": "#2fc25b"}, 
+						  {"name": "百香果","data":[60, 75, 90, 40, 80, 60],"color": "#1890ff"}, 
+						  {"name": "香蕉","data": [ 70, 45, 40, 70, 70, 120],"color": "#facc14"},
+						  ]};
+				_self.showColumn("canvasColumn",Column);
+				
 				let data = {
 					"series": [
 						{"name": "绿橙","data": 50,"color": "#2fc25b"}, 
@@ -397,32 +388,32 @@
 				_self.showArea("canvasArea", Area);
 				
 				
-				let date2 =  {
-				      "categories": ["2012", "2013", "2014", "2015", "2016", "2017"],
-				      "series": [{
-				        "name": "曲面",
-				        "data": [70, 50, 85, 130, 64, 88],
-				        "type": "area",
-				        "style": "curve"
-				      }, {
-				        "name": "柱1",
-				        "data": [40, 30, 55, 110, 24, 58],
-				        "type": "column"
-				      }, {
-				        "name": "曲线",
-				        "data": [70, 50, 85, 130, 64, 88],
-				        "type": "line",
-				        "style": "curve",
-				        "color": "#1890ff",
-				        "disableLegend": true
-				      }]
-				    }
-				let Mix={categories:[],series:[]};
-				//这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
-				Mix.categories=date2.categories;
-				Mix.series=date2.series;
-				_self.textarea = JSON.stringify(date2);
-				_self.showMix("canvasMix",Mix);
+				// let date2 =  {
+				//       "categories": ["2012", "2013", "2014", "2015", "2016", "2017"],
+				//       "series": [{
+				//         "name": "曲面",
+				//         "data": [70, 50, 85, 130, 64, 88],
+				//         "type": "area",
+				//         "style": "curve"
+				//       }, {
+				//         "name": "柱1",
+				//         "data": [40, 30, 55, 110, 24, 58],
+				//         "type": "column"
+				//       }, {
+				//         "name": "曲线",
+				//         "data": [70, 50, 85, 130, 64, 88],
+				//         "type": "line",
+				//         "style": "curve",
+				//         "color": "#1890ff",
+				//         "disableLegend": true
+				//       }]
+				//     }
+				// let Mix={categories:[],series:[]};
+				// //这里我后台返回的是数组，所以用等于，如果您后台返回的是单条数据，需要push进去
+				// Mix.categories=date2.categories;
+				// Mix.series=date2.series;
+				// _self.textarea = JSON.stringify(date2);
+				// _self.showMix("canvasMix",Mix);
 			},
 			showPie(canvasId, chartData) {
 				canvaPie = new uCharts({

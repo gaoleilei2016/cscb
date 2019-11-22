@@ -28,7 +28,7 @@
 						<text class="cuIcon-right"></text>
 					</view>
 				</view>
-				<view class="flex justify-between margin-lr-sm" style="margin-top: -20upx;margin-bottom: -25upx;z-index: 999;">
+				<view class="flex justify-between margin-lr-sm" style="margin-top: -20upx;margin-bottom: -50upx;z-index: 999;">
 					<view class="">
 						<image style="width: 50upx;height: 70upx;z-index: 2;" src="../../static/lianjie.png" mode="aspectFit"></image>
 					</view>
@@ -36,85 +36,76 @@
 						<image style="width: 50upx;height: 70upx;z-index: 2;" src="../../static/lianjie.png" mode="aspectFit"></image>
 					</view>
 				</view>
-				<tui-sticky :scrollTop="scrollTop" stickyHeight="104rpx">
-					<template v-slot:header>
-						<view class="sticky-item">
-							<view style="width: 100%;z-index: 1;" class="align-center bg-white  radius-lg " :class="fillwidth?'margin-sm no-margin-lr':'margin-sm'">
-								<view class="tui-header-screen">
-									<view class="tui-screen-top solid-bottom">
-										<view class="tui-top-item tui-icon-ml " :class="[tabIndex==1?'tui-active tui-bold':'']" data-index="1" @tap="screen">
-											<view class="text-lg"><text class="text-df">{{selectedName[0]}}</text><text :class="selectH1>0?'cuIcon-triangleupfill':'cuIcon-triangledownfill'"></text></view>
-										</view>
-										<view class="tui-top-item tui-icon-ml" :class="[tabIndex==2?'tui-active tui-bold':'']" data-index="2" @tap="screen">
-											<view class="text-lg"><text class="text-df">{{selectedName[1]}}</text><text :class="selectH2>0?'cuIcon-triangleupfill':'cuIcon-triangledownfill'"></text></view>
-										</view>
-										<view class="tui-top-item tui-icon-ml" :class="[tabIndex==3?'tui-active tui-bold':'']" data-index="3" @tap="screen">
-											<view class="text-lg"><text class="text-df">{{selectedName[2]}}</text><text :class="selectH3>0?'cuIcon-triangleupfill':'cuIcon-triangledownfill'"></text></view>
-										</view>
-										<!--下拉选择列表 综合-->
-										<!-- <view class="tui-dropdownlist" :class="[selectH1>0?'tui-dropdownlist-show':'']">
-											<view class="tui-dropdownlist-item tui-icon-middle" :class="[item.selected?'tui-bold':'']" v-for="(item,index) in dropdownList1"
-											 :key="index" @tap="dropdownItem2" :data-index="index" :data-name="item.name" :data-value="item.value">
-												<view class="margin-tb-sm">
-													<text class="text-theme">{{item.name}}</text>
-												</view>
-												<text class="cuIcon-check" v-if="item.selected"></text>
-											</view>
-										</view> -->
-										<view class="tui-dropdownlist" :class="[selectH2>0?'tui-dropdownlist-show':'']">
-											<view class="tui-dropdownlist-item tui-icon-middle" :class="[item.selected?'tui-bold':'']" v-for="(item,index) in dropdownList2"
-											 :key="index" @tap="dropdownItem4" :data-index="index" :data-name="item.name" :data-value="item.value">
-												<view class="margin-tb-sm">
-													<text class="text-theme">{{item.name}}</text>
-												</view>
-												<text class="cuIcon-check" v-if="item.selected"></text>
-											</view>
-										</view>
-										<view class="tui-dropdownlist" :class="[selectH3>0?'tui-dropdownlist-show':'']">
-											<view class="tui-dropdownlist-item tui-icon-middle" :class="[item.selected?'tui-bold':'']" v-for="(item,index) in getTaskCategoryList"
-											 :key="index" @tap="dropdownItem5" :data-index="index" :data-name="item.name" :data-value="item.id">
-												<view class="margin-tb-sm">
-													<text class="text-theme">{{item.name}}</text>
-												</view>
-												<text class="cuIcon-check" v-if="item.selected"></text>
-											</view>
-										</view>
-										<view class="tui-dropdownlist-mask" :class="[selectH1>0?'tui-mask-show':'']" @tap.stop="hideDropdownList"></view>
-										<view class="tui-dropdownlist-mask" :class="[selectH2>0?'tui-mask-show':'']" @tap.stop="hideDropdownList"></view>
-										<view class="tui-dropdownlist-mask" :class="[selectH3>0?'tui-mask-show':'']" @tap.stop="hideDropdownList"></view>
+				<view style="z-index: 1;" class="align-center bg-white radius-lg" :class="fillwidth?'margin-sm no-margin-lr':'margin-sm'">
+					<view class="tui-header-screen">
+						<view class="tui-screen-top solid-bottom">
+							<view class="tui-top-item tui-icon-ml " :class="[tabIndex==1?'tui-active tui-bold':'']" data-index="1" @tap="screen">
+								<view class="text-lg"><text class="text-df">{{selectedName[0]}}</text><text :class="selectH1>0?'cuIcon-triangleupfill':'cuIcon-triangledownfill'"></text></view>
+							</view>
+							<view class="tui-top-item tui-icon-ml" :class="[tabIndex==2?'tui-active tui-bold':'']" data-index="2" @tap="screen">
+								<view class="text-lg"><text class="text-df">{{selectedName[1]}}</text><text :class="selectH2>0?'cuIcon-triangleupfill':'cuIcon-triangledownfill'"></text></view>
+							</view>
+							<view class="tui-top-item tui-icon-ml" :class="[tabIndex==3?'tui-active tui-bold':'']" data-index="3" @tap="screen">
+								<view class="text-lg"><text class="text-df">{{selectedName[2]}}</text><text :class="selectH3>0?'cuIcon-triangleupfill':'cuIcon-triangledownfill'"></text></view>
+							</view>
+							<!--下拉选择列表 综合-->
+							<!-- <view class="tui-dropdownlist" :class="[selectH1>0?'tui-dropdownlist-show':'']">
+								<view class="tui-dropdownlist-item tui-icon-middle" :class="[item.selected?'tui-bold':'']" v-for="(item,index) in dropdownList1"
+								 :key="index" @tap="dropdownItem2" :data-index="index" :data-name="item.name" :data-value="item.value">
+									<view class="margin-tb-sm">
+										<text class="text-theme">{{item.name}}</text>
 									</view>
+									<text class="cuIcon-check" v-if="item.selected"></text>
+								</view>
+							</view> -->
+							<view class="tui-dropdownlist" :class="[selectH2>0?'tui-dropdownlist-show':'']">
+								<view class="tui-dropdownlist-item tui-icon-middle" :class="[item.selected?'tui-bold':'']" v-for="(item,index) in dropdownList2"
+								 :key="index" @tap="dropdownItem4" :data-index="index" :data-name="item.name" :data-value="item.value">
+									<view class="margin-tb-sm">
+										<text class="text-theme">{{item.name}}</text>
+									</view>
+									<text class="cuIcon-check" v-if="item.selected"></text>
+								</view>
+							</view>
+							<view class="tui-dropdownlist" :class="[selectH3>0?'tui-dropdownlist-show':'']">
+								<view class="tui-dropdownlist-item tui-icon-middle" :class="[item.selected?'tui-bold':'']" v-for="(item,index) in getTaskCategoryList"
+								 :key="index" @tap="dropdownItem5" :data-index="index" :data-name="item.name" :data-value="item.id">
+									<view class="margin-tb-sm">
+										<text class="text-theme">{{item.name}}</text>
+									</view>
+									<text class="cuIcon-check" v-if="item.selected"></text>
+								</view>
+							</view>
+							<view class="tui-dropdownlist-mask" :class="[selectH1>0?'tui-mask-show':'']" @tap.stop="hideDropdownList"></view>
+							<view class="tui-dropdownlist-mask" :class="[selectH2>0?'tui-mask-show':'']" @tap.stop="hideDropdownList"></view>
+							<view class="tui-dropdownlist-mask" :class="[selectH3>0?'tui-mask-show':'']" @tap.stop="hideDropdownList"></view>
+						</view>
+					</view>
+				</view>
+				<view class="grid col-2 margin-sm flex justify-between " :class="fillwidth?'margin-t60':''">
+					<navigator :url="'details?role='+role" style="width:48%" class="radius-top margin-bottom-sm" v-for="(item,index) in myList" :key="index">
+						<view style="background:url(/static/play.png) no-repeat;background-size:60upx 60upx;background-position: 50% 50%;background-color:rgba(0, 0, 0, 0.5);z-index: 1;height: 270upx;" class="radius-top">
+							<image class="radius-top" style="width: 100%;height: 270upx;z-index: -1;" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572526441738&di=72654ddd0b3a2628784e86cc540e4512&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1707%2F28%2Fc6%2F54025678_1501245963871.jpg" mode="aspectFill"></image>
+						</view>
+						<view class="bg-white padding-bottom-sm padding-top-xs padding-left-xs padding-right-xs radius-bottom">
+							<view class="text-cut">
+								<text>海南农牧种植基地(7000亩)</text>
+							</view>
+							<view class="flex justify-between text-sm">
+								<view class="">
+									<text>温度:</text><text>22</text>
+								</view>
+								<view class="">
+									<text>湿度:</text><text>70%</text>
+								</view>
+								<view class="">
+									<text>噪声:</text><text>50B</text>
 								</view>
 							</view>
 						</view>
-					</template>
-					<template v-slot:content>
-						<!--内容 start-->
-						<view class="grid col-2 margin-sm flex justify-between ">
-							<navigator :url="'details?role='+role" style="width:48%" class="radius-top margin-bottom-sm" v-for="(item,index) in myList" :key="index">
-								<view style="background:url(/static/play.png) no-repeat;background-size:60upx 60upx;background-position: 50% 50%;background-color:rgba(0, 0, 0, 0.5);z-index: 1;height: 270upx;" class="radius-top">
-									<image class="radius-top" style="width: 100%;height: 270upx;z-index: -1;" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572526441738&di=72654ddd0b3a2628784e86cc540e4512&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1707%2F28%2Fc6%2F54025678_1501245963871.jpg" mode="aspectFill"></image>
-								</view>
-								<view class="bg-white padding-bottom-sm padding-top-xs padding-left-xs padding-right-xs radius-bottom">
-									<view class="text-cut">
-										<text>海南农牧种植基地(7000亩)</text>
-									</view>
-									<view class="flex justify-between text-sm">
-										<view class="">
-											<text>温度:</text><text>22</text>
-										</view>
-										<view class="">
-											<text>湿度:</text><text>70%</text>
-										</view>
-										<view class="">
-											<text>噪声:</text><text>50B</text>
-										</view>
-									</view>
-								</view>
-							</navigator>
-						</view>
-						<!--内容 end-->
-					</template>
-				</tui-sticky>
+					</navigator>
+				</view>
+				<load-tip :visible="isLoad"></load-tip>
 			</view>
 		</view>
 		<mpvue-city-picker :themeColor="themeColor" ref="mpvueCityPicker" :pickerValueDefault="cityPickerValueDefault"
@@ -207,6 +198,7 @@
 				],
 				myList:["","","","","","","","","","","","","","",""],
 				role:'ncz',
+				isLoad:true
 			};
 		},
 		onLoad(e) {
@@ -215,11 +207,24 @@
 		},
 		onPageScroll(e) {
 			this.scrollTop= e.scrollTop
-			if(e.scrollTop>300){
+			if(e.scrollTop>uni.upx2px(590)){
 				this.fillwidth=true
 			}else{
 				this.fillwidth=false
 			}
+		},
+		onPullDownRefresh: () => {
+			setTimeout(()=> {
+				uni.stopPullDownRefresh()
+			}, 2000);
+			
+		},
+		onReachBottom() {
+			this.$api.msg("触底了")
+			this.isLoad=true
+			setTimeout(()=> {
+				this.isLoad=false
+			}, 2000);
 		},
 		methods: {
 			showMulLinkageThreePicker() {
@@ -311,9 +316,18 @@
 </script>
 
 <style>
+	.margin-t60{
+		margin-top: 145upx;
+	}
 	.no-margin-lr{
 		margin-left: 0;
 		margin-right: 0;
+		border-radius: 0;
+		position: fixed;
+		margin-top: 0;
+		top: 0;
+		left: 0;
+		right: 0;
 	}
 	.sticky-item {
 		width: 100%;
@@ -423,7 +437,7 @@
 		padding-top: 10upx;
 		padding-bottom: 26upx;
 		left: 0;
-		top: 88upx;
+		top: 110upx;
 		visibility: hidden;
 		z-index: 999;
 	}
